@@ -1,0 +1,14 @@
+C:\Users\ntbor\source\repos\Shablon\Data\bin\Debug\net7.0\Data.deps.json
+C:\Users\ntbor\source\repos\Shablon\Data\bin\Debug\net7.0\Data.runtimeconfig.json
+C:\Users\ntbor\source\repos\Shablon\Data\bin\Debug\net7.0\Data.dll
+C:\Users\ntbor\source\repos\Shablon\Data\bin\Debug\net7.0\Data.pdb
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\Data.csproj.AssemblyReference.cache
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\Data.AssemblyInfoInputs.cache
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\Data.AssemblyInfo.cs
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\Data.csproj.CoreCompileInputs.cache
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\Data.dll
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\refint\Data.dll
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\Data.pdb
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\Data.genruntimeconfig.cache
+C:\Users\ntbor\source\repos\Shablon\Data\obj\Debug\net7.0\ref\Data.dll

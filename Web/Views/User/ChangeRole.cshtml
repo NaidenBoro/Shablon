@@ -1,0 +1,67 @@
+﻿@using Service.UserManagment;
+@model Service.UserManagment.UserDTO
+
+@{
+    ViewData["Title"] = "CHange Role";
+}
+
+<h1>Chane Role</h1>
+
+<h4>UserDTO</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ChangeRoleConfirm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input hidden id="id" asp-for="@Model.Id"></input>
+            <div class="form-group">
+                <label>Choose @(Model.UserName+"\'s") role:</label>
+                <select name="role">
+                    @foreach(string r in Enum.GetNames(typeof(Roles)))
+                    {
+                        @if (Model.Role == r)
+                        {
+                            <option selected value="@r">@r</option>
+                            
+                        }
+                        else
+                        {
+                            <option value="@r">@r</option>
+                        }
+                    }@*
+                    @if(Model.Role == "Admin")
+                    {
+                        <option selected>Admin</option>
+                        <option>User</option>
+                        <option value="HouseKeeper">House Keeper</option>
+                    }
+                    else if (Model.Role == "Client")
+                    {
+                        
+                        <option selected>User</option>
+                        <option value="HouseKeeper">House Keeper</option>
+                        <option>Admin</option>
+                    }
+                    else
+                    {
+                        <option selected value="HouseKeeper">House Keeper</option>
+                        <option>User</option>
+                        <option>Admin</option>
+                    }*@
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

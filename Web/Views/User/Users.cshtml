@@ -1,0 +1,51 @@
+﻿@using Service.UserManagment;
+@model ManageUsersModel
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.users[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.users[0].UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.users[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.users[0].Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.users) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @if(item.Id!=Model.curUserId){
+                @Html.ActionLink("Change Role", "ChangeRole", new { item.Id })
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
