@@ -11,17 +11,17 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
-namespace Shablon.Areas.Identity.Pages.Account.Manage
+namespace GotiniSubitiya.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {
-        private readonly UserManager<ShablonUser> _userManager;
-        private readonly SignInManager<ShablonUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<ChangePasswordModel> _logger;
 
         public ChangePasswordModel(
-            UserManager<ShablonUser> userManager,
-            SignInManager<ShablonUser> signInManager,
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
             ILogger<ChangePasswordModel> logger)
         {
             _userManager = userManager;

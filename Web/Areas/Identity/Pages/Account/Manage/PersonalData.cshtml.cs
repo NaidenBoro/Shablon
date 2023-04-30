@@ -8,15 +8,15 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace Shablon.Areas.Identity.Pages.Account.Manage
+namespace GotiniSubitiya.Areas.Identity.Pages.Account.Manage
 {
     public class PersonalDataModel : PageModel
     {
-        private readonly UserManager<ShablonUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly ILogger<PersonalDataModel> _logger;
 
         public PersonalDataModel(
-            UserManager<ShablonUser> userManager,
+            UserManager<AppUser> userManager,
             ILogger<PersonalDataModel> logger)
         {
             _userManager = userManager;

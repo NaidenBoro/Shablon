@@ -1,4 +1,4 @@
-namespace Shablon.Models
+namespace GotiniSubitiya.Models
 {
     public class ErrorViewModel
     {

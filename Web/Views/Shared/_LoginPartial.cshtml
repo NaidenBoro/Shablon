@@ -1,6 +1,6 @@
 ﻿@using Data.Models;
-@inject SignInManager<ShablonUser> SignInManager
-@inject UserManager<ShablonUser> UserManager
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Shablon.Models;
+using GotiniSubitiya.Models;
 using System.Diagnostics;
 
-namespace Shablon.Controllers
+namespace GotiniSubitiya.Controllers
 {
     public class HomeController : Controller
     {

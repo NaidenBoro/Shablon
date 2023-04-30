@@ -11,14 +11,14 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace Shablon.Areas.Identity.Pages.Account
+namespace GotiniSubitiya.Areas.Identity.Pages.Account
 {
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<ShablonUser> _signInManager;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<ShablonUser> signInManager, ILogger<LogoutModel> logger)
+        public LogoutModel(SignInManager<AppUser> signInManager, ILogger<LogoutModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;

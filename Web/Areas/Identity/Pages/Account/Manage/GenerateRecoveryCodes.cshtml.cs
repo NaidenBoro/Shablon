@@ -11,15 +11,15 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Shablon.Areas.Identity.Pages.Account.Manage
+namespace GotiniSubitiya.Areas.Identity.Pages.Account.Manage
 {
     public class GenerateRecoveryCodesModel : PageModel
     {
-        private readonly UserManager<ShablonUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly ILogger<GenerateRecoveryCodesModel> _logger;
 
         public GenerateRecoveryCodesModel(
-            UserManager<ShablonUser> userManager,
+            UserManager<AppUser> userManager,
             ILogger<GenerateRecoveryCodesModel> logger)
         {
             _userManager = userManager;

@@ -13,8 +13,8 @@ namespace Web.Controllers
     [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
-        private readonly ShablonContext _context;
-        public UserController(ShablonContext context)
+        private readonly AppDbContext _context;
+        public UserController(AppDbContext context)
         {
             _context = context;
         }

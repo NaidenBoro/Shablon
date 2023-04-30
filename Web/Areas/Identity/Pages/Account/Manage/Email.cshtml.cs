@@ -14,17 +14,17 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace Shablon.Areas.Identity.Pages.Account.Manage
+namespace GotiniSubitiya.Areas.Identity.Pages.Account.Manage
 {
     public class EmailModel : PageModel
     {
-        private readonly UserManager<ShablonUser> _userManager;
-        private readonly SignInManager<ShablonUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly IEmailSender _emailSender;
 
         public EmailModel(
-            UserManager<ShablonUser> userManager,
-            SignInManager<ShablonUser> signInManager,
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
             IEmailSender emailSender)
         {
             _userManager = userManager;
@@ -74,7 +74,7 @@ namespace Shablon.Areas.Identity.Pages.Account.Manage
             public string NewEmail { get; set; }
         }
 
-        private async Task LoadAsync(ShablonUser user)
+        private async Task LoadAsync(AppUser user)
         {
             var email = await _userManager.GetEmailAsync(user);
             Email = email;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Oh8VXQZmceAuS0rg3PO+1gtKKaeUMmsXuwjzleDYJ94=",
+  "Hash": "WtVBs75hBRjhSBvbyKu3yUrv7Cgk05kwpspt4GGiJpA=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -2089,6 +2089,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\ntbor\\source\\repos\\Shablon\\Web\\wwwroot\\Практическо задание.pdf",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ntbor\\source\\repos\\Shablon\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "Практическо задание.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Практическо задание.pdf"
     }
   ]
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Web.Seed;
 using Data.Context;
 
-namespace Shablon
+namespace GotiniSubitiya
 {
     public class Program
     {
@@ -16,12 +16,13 @@ namespace Shablon
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-            builder.Services.AddDbContext<ShablonContext>(options => options.UseSqlServer(
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddDefaultIdentity<ShablonUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ShablonContext>();
+                .AddEntityFrameworkStores<AppDbContext>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

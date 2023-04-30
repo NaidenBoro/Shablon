@@ -13,18 +13,18 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Shablon.Areas.Identity.Pages.Account.Manage
+namespace GotiniSubitiya.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<ShablonUser> _userManager;
-        private readonly SignInManager<ShablonUser> _signInManager;
-        private readonly IUserStore<ShablonUser> _userStore;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly IUserStore<AppUser> _userStore;
 
         public ExternalLoginsModel(
-            UserManager<ShablonUser> userManager,
-            SignInManager<ShablonUser> signInManager,
-            IUserStore<ShablonUser> userStore)
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
+            IUserStore<AppUser> userStore)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -70,7 +70,7 @@ namespace Shablon.Areas.Identity.Pages.Account.Manage
                 .ToList();
 
             string passwordHash = null;
-            if (_userStore is IUserPasswordStore<ShablonUser> userPasswordStore)
+            if (_userStore is IUserPasswordStore<AppUser> userPasswordStore)
             {
                 passwordHash = await userPasswordStore.GetPasswordHashAsync(user, HttpContext.RequestAborted);
             }

@@ -13,15 +13,15 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shablon.Areas.Identity.Pages.Account
+namespace GotiniSubitiya.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel
     {
-        private readonly UserManager<ShablonUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IEmailSender _sender;
 
-        public RegisterConfirmationModel(UserManager<ShablonUser> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<AppUser> userManager, IEmailSender sender)
         {
             _userManager = userManager;
             _sender = sender;

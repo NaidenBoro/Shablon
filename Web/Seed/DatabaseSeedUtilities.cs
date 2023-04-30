@@ -11,11 +11,11 @@ namespace Web.Seed
         {
             using (var serviceScope = app.Services.CreateScope())
             {
-                using (var shablonContext = serviceScope.ServiceProvider.GetRequiredService<ShablonContext>())
+                using (var appDbContext = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>())
                 {
-                    shablonContext.Database.Migrate();
+                    appDbContext.Database.Migrate();
 
-                    if (shablonContext.Roles.ToList().Count == 0)
+                    if (appDbContext.Roles.ToList().Count == 0)
                     {
 
                         foreach(var r in Enum.GetNames(typeof(Roles)))
@@ -24,10 +24,10 @@ namespace Web.Seed
                             role.Name = r;
                             role.NormalizedName = role.Name.ToUpper();
 
-                            shablonContext.Add(role);
+                            appDbContext.Add(role);
 
 
-                            shablonContext.SaveChanges();
+                            appDbContext.SaveChanges();
                         }
                     }
                 }
