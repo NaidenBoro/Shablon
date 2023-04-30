@@ -9,6 +9,7 @@ public class AppDbContext : IdentityDbContext<AppUser>
 {
     public DbSet<AppFile> Files { get; set; }
     public DbSet<AppEvent> Events { get; set; }
+    public DbSet<Bilet> Bilet { get; set; }
 
     public AppDbContext(DbContextOptions options)
         : base(options)

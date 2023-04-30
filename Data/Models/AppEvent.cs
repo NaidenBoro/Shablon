@@ -13,7 +13,7 @@ namespace Data.Models
         public string Description { get; set; } = string.Empty;
         public string ImageID { get; set; } = string.Empty;
         public virtual AppFile Image { get; set; }
-        public DateTime date { get; set;}
+        public DateTime Date { get; set;}
 
     }
 }

@@ -38,7 +38,7 @@ namespace Service.Event
                             Description = model.Description,
                             Image = file,
                             ImageID= imageId,
-                            date= model.Date
+                            Date= model.Date
                         };
                         _context.Events.Add(ev);
 
@@ -55,6 +55,44 @@ namespace Service.Event
             catch (Exception ex) 
             {
             return false;
+            }
+        }
+        public static async Task<bool> UpdateEventAndFileAsync(CreateEventViewModel model, AppDbContext _context)
+        {
+            try
+            {
+                var image = model.FormFile;
+                string imageId = "";
+                using (var memoryStream = new MemoryStream())
+                {
+                    await image.CopyToAsync(memoryStream);
+
+                    // Upload the file if less than 2 MB
+                    if (memoryStream.Length < 2097152)
+                    {
+                        var file = new AppFile()
+                        {
+                            Content = memoryStream.ToArray()
+                        };
+                        imageId = file.Id;
+                        _context.Files.Add(file);
+
+                        AppEvent ev = _context.Events.Find(model.Id)!;
+                        ev.ImageID = imageId;
+                        ev.Name = model.Name;
+                        ev.Date = model.Date;
+                        ev.Description = model.Description;
+                        _context.Events.Update(ev);
+
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
 
