@@ -2,6 +2,7 @@
 using Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Service.UserManagment;
 using System.Data;
@@ -14,8 +15,10 @@ namespace Web.Controllers
     public class UserController : Controller
     {
         private readonly AppDbContext _context;
-        public UserController(AppDbContext context)
+        private readonly UserManager<AppUser> _userManager ;
+        public UserController(AppDbContext context, UserManager<AppUser> userManager)
         {
+            _userManager = userManager;
             _context = context;
         }
         // GET: Users
@@ -30,24 +33,25 @@ namespace Web.Controllers
         }
 
         // GET: Users/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            return View(UserDTO.GetUserDTO(id, _context, _userManager));
         }
 
         // GET: Users/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new UserDTO());
         }
 
         // POST: Users/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(UserDTO userDTO)
         {
             try
             {
+                UserDTO.CreateUser(userDTO, _context, _userManager);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -57,24 +61,20 @@ namespace Web.Controllers
         }
 
         // GET: Users/Edit/5
-        public ActionResult ChangeRole(string id)
+        public ActionResult Edit(string id)
         {
-            return View(UserDTO.GetUserDTO(id,_context));
+            return View(UserDTO.GetUserDTO(id,_context,_userManager));
         }
 
         // POST: Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangeRoleConfirm(string id, string role)
+        public ActionResult Edit(UserDTO userDTO)
         {
                        
             try
             {
-                if (User.FindFirstValue(ClaimTypes.NameIdentifier) == id || !Enum.GetNames(typeof(Roles)).Contains(role))
-                {
-                    return View("Error");
-                }
-                UserDTO.ChangeRole(id,role,_context);
+                UserDTO.UpdateUser(userDTO,_context,_userManager);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -85,24 +85,12 @@ namespace Web.Controllers
         }
 
         // GET: Users/Delete/5
-        /*public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(string id)
         {
-            return View();
+            await _userManager.DeleteAsync(await _userManager.FindByIdAsync(id));
+            return RedirectToAction(nameof(Index));
         }
 
-        // POST: Users/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }*/
+        
     }
 }
